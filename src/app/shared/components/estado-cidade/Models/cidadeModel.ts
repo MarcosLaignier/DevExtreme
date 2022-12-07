@@ -15,8 +15,14 @@ export class cidadeModel {
     }
   }
 
+  emitCidadeEstado(){
+    return this.microrregiao.mesorregiao.UF.nome.concat(" - ") + this.nome
+  }
+
   constructor(init?: Partial<cidadeModel>) {
     Object.assign(this, init);
 
   }
+
+
 }

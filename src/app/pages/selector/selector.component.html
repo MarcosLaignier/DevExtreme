@@ -1,0 +1,80 @@
+<app-estado-cidade (select)="dadosSelecionados($event)"></app-estado-cidade>
+
+<div class="dx-fieldset">
+<!--  <div class="dx-field">-->
+<!--    <div class="dx-field-label">Dados Selecionados no Componente Filho</div>-->
+<!--    <div class="dx-field-value">-->
+<!--      <dx-text-box-->
+<!--        [readOnly]="true"-->
+<!--        placeholder="Dados Selecionados"-->
+<!--        [value]="dadosEstadoCidade"-->
+<!--      ></dx-text-box>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <dx-button
+    stylingMode="contained"
+    text="Dados Selecionados"
+    type="normal"
+    [width]="200"
+    (onClick)="testePopUp()"
+  >
+  </dx-button>
+
+  <div>
+
+
+    <!-- TESTE GRID -->
+
+    <dx-data-grid
+      [dataSource]="dadosGrid"
+      keyExpr="id"
+      [showBorders]="true"
+      [height]="400"
+    >
+      <dxi-column
+        dataField="municipio.id"
+        caption="ID"
+        dataType="number"
+      ></dxi-column>
+      <dxi-column
+        dataField="nome"
+        caption="Nome"
+      ></dxi-column>
+      <dxi-column
+        dataField="municipio.microrregiao.mesorregiao.UF.nome"
+        caption="Estado"
+        sortOrder="asc"
+
+      ></dxi-column>
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+    </dx-data-grid>
+
+  </div>
+
+  <!--TESTE POP UP  -->
+
+  <dx-popup
+    [width]="660"
+    [height]="540"
+    [showTitle]="true"
+    title="Dados Selecionados"
+    [hideOnOutsideClick]="true"
+    [(visible)]="popupVisible"
+  >
+    <div>
+
+      <p >{{dadosEstadoCidade}}</p>
+
+
+
+    </div>
+
+  </dx-popup>
+
+  <!--TESTE TOAST  -->
+
+  <dx-toast [(visible)]="isVisible" type="success" [message]="message"></dx-toast>
+
+
+</div>

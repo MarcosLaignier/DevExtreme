@@ -1,0 +1,32 @@
+<div class="dx-fieldset">
+  <div class="dx-field">
+    <div class="dx-field-label">Estado</div>
+    <div class="dx-field-value">
+      <dx-select-box
+      [items]="estadosBrasil"
+      (onValueChanged)="selectEstadoValue($event)"
+      [showClearButton]="true"
+      displayExpr="sigla"
+      placeholder="Selecione o Estado"
+      >
+      </dx-select-box>
+    </div>
+  </div>
+
+  <div class="dx-field">
+    <div class="dx-field-label">Cidade</div>
+    <div class="dx-field-value">
+      <dx-select-box
+        [items]="cidadeBrasil"
+        [searchEnabled]="true"
+        displayExpr="nome"
+        [showClearButton]="true"
+        (onValueChanged)="emitCidade($event)"
+
+        placeholder="Selecione a Cidades"
+
+      ></dx-select-box>
+    </div>
+  </div>
+</div>
+
