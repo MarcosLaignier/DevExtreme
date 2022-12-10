@@ -45,8 +45,11 @@ export class SelectorComponent implements OnInit {
   }
 
   dadosSelecionados(select: cidadeModel) {
-    this.e = true
-   this.dadosEstadoCidade=select.emitCidadeEstado()
+    if (select.id != null) {
+    this.dadosEstadoCidade = select.emitCidadeEstado()
+  }else {
+      this.dadosEstadoCidade = "Dados nao selecionados"
+    }
   }
 
   testePopUp() {

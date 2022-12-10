@@ -27,19 +27,18 @@ export class EstadoCidadeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.listEstados()
+    this.listEstados();
+
   }
 
+  listSiglaNomeEstados = function(data:EstadoModel){
+    return data && data.sigla.concat(" - ") + data.nome ;
+  }
 
   emitCidade(valor:any){
     let cidadeSelecionada = new cidadeModel(valor.value)
     this.select.emit(cidadeSelecionada)
 
-    // if(valor.value == null){
-    //   this.select.emit('Dados nao selecionados')
-    // }else{
-    //   this.select.emit(cidadeSelecionada)
-    // }
 
   }
 
